@@ -1,7 +1,4 @@
 package com.example.project;
-    //FOR EXTRA CREDIT 
-    //you should copy and paste all of your code from the LinearCalculator class
-    // but NOT printInfo(). Please update it below
     
 import java.text.DecimalFormat;
 
@@ -17,8 +14,7 @@ public class LinearCalculator{
     //CONSTRUCTOR
     //1 constructor with 2 String parameters. Each parameter represents a coordinate. 
     //For example, "(1,2)" and "(3,4)" would be two parameter values 
-    //You will have to parse the string into 4 integers, representing the 2 points.
-    public LinearCalculator(String coor1, String coor2){ // <--add 2 string parameters to this constructor
+    public LinearCalculator(String coor1, String coor2){
      x1= Integer.parseInt(coor1.substring(coor1.indexOf("(")+1, coor1.indexOf(",")));
      x2= Integer.parseInt(coor2.substring(coor2.indexOf("(")+1, coor2.indexOf(",")));
      y1= Integer.parseInt(coor1.substring(coor1.indexOf(",")+1, coor1.indexOf(")")));
@@ -47,7 +43,7 @@ public class LinearCalculator{
     }
     //yInt() -> returns a double.
     //calculates the y intercept of the equation and returns the value to the nearest HUNDREDTH
-    //if y-int if undefined, should return -999.99
+    //if y-int if undefined, returns -999.99
     public double yInt(){
         DecimalFormat format = new DecimalFormat("#.##");
         if (slope()==-999.99){
@@ -59,7 +55,7 @@ public class LinearCalculator{
 
     //slope() -> returns a double. 
     //calculates the slope of the equations and returns the value to the nearest HUNDREDTH
-    //if slope is undefined, should return -999.99
+    //if slope is undefined, returns -999.99
     public double slope(){
         DecimalFormat format = new DecimalFormat("#.##");
         if(x2==x1){
@@ -71,8 +67,8 @@ public class LinearCalculator{
 
     //equations() -> returns a String.
     //calculates the final equation in y=mx+b form and returns the string
-    //if the equation has no slope, the equation should return -> "undefined"
-    //HINT: You may need other custom methods to decrease the amount of code in the equations() method
+    //if the equation has no slope, the equation returns -> "undefined"
+    
     public String equation(){
         if(slope()==0&&yInt()==0){
             return "y=0";
@@ -97,8 +93,7 @@ public class LinearCalculator{
         return Integer.parseInt(format.format(x));
     }
 
-    //You will need to concatenate to the string 
-    //the results from findSymmetry() and Midpoint()
+    //returns all information about the point and the equation together in one string
     public String printInfo(){
         String str = "The two points are: (" + x1 + "," + y1 + ")";
         str += " and " + "(" + x2 + "," + y2 + ")";
@@ -113,12 +108,7 @@ public class LinearCalculator{
     }
 
     //findSymmetry()-> returns a string 
-    //the method should determine if there is symmetry between the two points
-    // there should be  4 return statements 
-    // return "Symmetric about the x-axis";
-    // return "Symmetric about the y-axis";
-    //return "Symmetric about the origin";
-    //return "No symmetry";
+    //the method determine if there is symmetry between the two points
     public String findSymmetry(){
         if(yInt()==0){
             return "Symmetric about the origin";
@@ -132,8 +122,7 @@ public class LinearCalculator{
     }
 
     //Midpoint()->return a string 
-    //the method should calculate the midpoint between the two points
-    //it should return "The midpoint of this line is: (0,0)";
+    //the method calculate the midpoint between the two points
     public String Midpoint(){
         double x=((double)x2+x1)/2;
         double y=((double)y2+y1)/2;
